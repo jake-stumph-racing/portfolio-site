@@ -19,6 +19,7 @@
     --color-gray6: #12181b;
     --br-sm2: 14px;
     --my-transition: all .4s ease-in-out;
+    --box-shadow-1: 0 3px 15px rgba(0,0,0,.3);
 }
 
 body{
@@ -60,16 +61,19 @@ section{
 .section1{
     display: none;
     transform: translateY(0) scale(1);
+    background-color: rgb(115, 205, 90);
 }
 
 .section2{
     display: none;
     transform: translateY(0) scale(1);
+    background-color: slateblue;
 }
 
 .section3{
     display: none;
     transform: translateY(0) scale(1);
+    background-color: rgb(163, 205, 90);
 }
 
 .section4{
@@ -80,6 +84,19 @@ section{
 .section5{
     display: none;
     transform: translateY(0) scale(1);
+}
+
+.active{
+    display: block;
+    animation: scaleAnim 2s ease-in-out;
+    @keyframes scaleAnim {
+        0%{
+            transform: translateY(-100%) scaleY(0)
+        }
+        100%{
+            transform: translateY(0) scaleY(1)
+        }
+    }
 }
 
 /*Controls */
@@ -104,4 +121,18 @@ section{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0.7rem 0;
+    box-shadow: var(--box-shadow-1);
+}
+.controls.control i{
+    font-size: 1.2rem;
+    color: var(--color-gray-2);
+    pointer-events: none;
+}
+.controls .active-btn{
+    background-color: var(--color-secondary) !important;
+    transition: all .4s ease-in-out;
+}
+.controls .active-btn i{
+    color: var(--color-white);
 }
